@@ -1,0 +1,41 @@
+{
+  "name": "pdf-printer",
+  "version": "0.0.1",
+  "description": "weasyprint-based HTTP service",
+  "main": "lib/client/index.js",
+  "scripts": {
+    "start": "node ./lib/server/index.js",
+    "test": "set NODE_ENV=test && mocha --ui tdd test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cepharum/pdf-printer.git"
+  },
+  "keywords": [
+    "print",
+    "pdf",
+    "convert",
+    "http"
+  ],
+  "author": "Thomas Urban <thomas.urban@cepharum.de>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/cepharum/pdf-printer/issues"
+  },
+  "homepage": "https://github.com/cepharum/pdf-printer#readme",
+  "devDependencies": {
+    "eslint": "^4.7.2",
+    "eslint-config-cepharum": "^1.0.2",
+    "eslint-config-standard": "^10.2.1",
+    "eslint-plugin-import": "^2.7.0",
+    "eslint-plugin-node": "^5.1.1",
+    "eslint-plugin-promise": "^3.5.0",
+    "eslint-plugin-standard": "^3.0.1",
+    "mocha": "^3.5.3",
+    "should": "^13.1.0"
+  },
+  "dependencies": {
+    "express": "^4.15.5",
+    "promise-essentials": "0.0.3"
+  }
+}
