@@ -1,7 +1,7 @@
 {
   "name": "pdf-printer",
   "version": "0.0.3",
-  "description": "weasyprint-based HTTP service",
+  "description": "weasyprint-based HTTP service and client libraries",
   "main": "lib/client/index.js",
   "scripts": {
     "start": "node ./lib/server/index.js",
@@ -15,7 +15,10 @@
     "print",
     "pdf",
     "convert",
-    "http"
+    "http",
+    "weasyprint",
+    "html",
+    "css"
   ],
   "author": "Thomas Urban <thomas.urban@cepharum.de>",
   "license": "MIT",

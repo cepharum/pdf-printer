@@ -8,15 +8,11 @@ HTTP service wrapping [WeasyPrint](http://weasyprint.org/) including client libr
 
 Running server is supported out-of-the-box using docker. Of course, it doesn't rely on docker and you might set it up on any sort of server you like.
 
-```
-docker build https://github.com/cepharum/pdf-printer.git
-```
+    docker build https://github.com/cepharum/pdf-printer.git
 
 ### Client
 
-```
-npm i pdf-printer
-```
+    npm i pdf-printer
 
 The client is exposed as API of this package. Thus using it is as simple as this:
 
