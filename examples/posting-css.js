@@ -28,30 +28,26 @@
 
 "use strict";
 
+const Client = require( "../lib/client" );
 
-/**
- * Implements filter logging all incoming requests to stdout.
- *
- * @param {object} app
- */
-module.exports = function( app ) {
 
-	app.use( function( req, res, next ) {
-		const origFn = res.end;
-
-		req._start = Date.now();
-
-		res.end = function() {
-			if ( !res._loggedBefore ) {
-				res._loggedBefore = true;
-
-				console.log( `${req.method} ${res.statusCode} ${req.url} ${Math.round( Date.now() - req._start )}ms` );
-			}
-
-			return origFn.apply( res, arguments );
-		};
-
-		next();
+new Client( process.env.SERVICE_URL || process.argv[2] || "127.0.0.1:3000" )
+	.uploadCssCode( `p.blue {
+	font-family: sans-serif;
+	color: blue;
+}
+` )
+	.then( client => client.printHtmlCode( `<html>
+<head>
+</head>
+<body>
+<h1>Hello World!</h1>
+<p>This is a very simple example querying this text formatted using HTML code to some service configured using environment variable or single argument to the related example script generating this.</p>
+<p class="blue">In addition there is this paragraph rendered in blue using sans-serif font face.</p>
+</body>
+</html>` ) )
+	.then( pdfStream => {
+		pdfStream.pipe( process.stdout );
+	}, error => {
+		console.error( `request failed: ${error.message}` );
 	} );
-
-};
