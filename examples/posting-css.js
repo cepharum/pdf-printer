@@ -46,7 +46,5 @@ new Client( process.env.SERVICE_URL || process.argv[2] || "127.0.0.1:3000" )
 <p class="blue">In addition there is this paragraph rendered in blue using sans-serif font face.</p>
 </body>
 </html>` ) )
-	.then( client => {
-		client.response.pipe( process.stdout );
-	} )
+	.then( client => client.response.pipe( process.stdout ) )
 	.catch( error => console.error( `request failed: ${error.message}` ) );

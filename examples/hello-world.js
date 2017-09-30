@@ -40,7 +40,5 @@ new Client( process.env.SERVICE_URL || process.argv[2] || "127.0.0.1:3000" )
 <p>This is a very simple example querying this text formatted using HTML code to some service configured using environment variable or single argument to the related example script generating this.</p>
 </body>
 </html>` )
-	.then( client => {
-		client.response.pipe( process.stdout );
-	} )
+	.then( client => client.response.pipe( process.stdout ) )
 	.catch( error => console.error( `request failed: ${error.message}` ) );
