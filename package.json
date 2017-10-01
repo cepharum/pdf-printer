@@ -1,6 +1,6 @@
 {
   "name": "pdf-printer",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "weasyprint-based HTTP service and client libraries",
   "main": "lib/client/index.js",
   "scripts": {
