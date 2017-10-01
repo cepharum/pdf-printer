@@ -28,17 +28,18 @@
 
 "use strict";
 
-const Express = require( "express" );
-const PromiseTools = require( "promise-essentials" );
-
-const app = Express();
+const Client = require( "../lib/client" );
 
 
-PromiseTools.each( [
-	"./filters/",
-	"./routes/",
-], n => require( n )( app ) )
-	.then( () => new Promise( resolve => {
-		app.listen( process.env.HTTP_PORT || 3000, process.env.HTTP_IP || "0.0.0.0", resolve );
-	} ) )
-	.catch( error => console.error( error ) );
+new Client( process.env.SERVICE_URL || process.argv[2] || "127.0.0.1:3000" )
+	.loadProfile( "mybrand" )
+	.then( client => client.printHtmlCode( `<html>
+<head>
+</head>
+<body>
+<h1>Hello World!</h1>
+<p>This is a very simple example querying this text formatted using HTML code to some service configured using environment variable or single argument to the related example script generating this.</p>
+</body>
+</html>` ) )
+	.then( client => client.response.pipe( process.stdout ) )
+	.catch( error => console.error( `request failed: ${error.message}` ) );

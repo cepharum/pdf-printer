@@ -1,0 +1,42 @@
+@media print {
+	@page {
+		margin: 2em;
+		font: normal 12pt/18pt sans-serif;
+
+		size: a4 portrait;
+
+		@top-left {
+			content: url(images/logo.svg);
+		}
+
+		@bottom-center {
+			content: counter( page );
+		}
+	}
+
+	@page :first {
+		margin-top: 8cm;
+		size: a4 landscape;
+
+		@top-left {
+			content: none;
+		}
+
+		@top-center {
+			content: url(images/logo-large.svg);
+		}
+
+		@bottom-center {
+			content: none;
+		}
+	}
+
+	body {
+		font: normal 12pt/18pt sans-serif;
+	}
+
+	h1 {
+		border-bottom: 0.5pt solid black;
+		page-break-after: always;
+	}
+}
